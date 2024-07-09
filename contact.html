@@ -1,0 +1,70 @@
+<!-- contact.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="faqs.html">FAQs</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="profile.html">Profile</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Contact Us</h1>
+    <form id="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <div id="form-response"></div>    
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Your College Name. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+  document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const form = event.target;
+    const formData = {
+      name: form.name.value,
+      email: form.email.value,
+      message: form.message.value
+    };
+
+    axios.post('http://localhost:3000/contact', formData)
+      .then(response => {
+        if (response.data.success) {
+          document.getElementById('form-response').innerText = 'Your message has been sent!';
+        } else {
+          document.getElementById('form-response').innerText = 'There was an error sending your message.';
+        }
+      })
+      .catch(error => {
+        console.error('Error sending message:', error);
+        document.getElementById('form-response').innerText = 'There was an error sending your message.';
+      });
+  });
+</script>
+
+  
+
+</body>
+</html>

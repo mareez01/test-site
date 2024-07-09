@@ -1,0 +1,85 @@
+<!-- profile.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Include the navigation bar -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="faqs.html">FAQs</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="profile.html">Profile</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>User Profile</h1>
+    <form id="profile-form">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <button type="submit">Update Profile</button>
+    </form>
+  </main>
+
+  <!-- Include the footer -->
+  <footer>
+    <p>&copy; 2024 Your College Name. All rights reserved.</p>
+    <ul>
+      <li><a href="about.html">About</a></li>
+      <li><a href="faqs.html">FAQs</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async function() {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            alert('Not authorized. Please log in.');
+            window.location.href = 'login.html';
+            return;
+        }
+
+        const response = await fetch('http://localhost:3000/users/profile', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+
+        const user = await response.json();
+        if (response.ok) {
+            document.getElementById('profile-info').innerText = `Welcome, ${user.username}`;
+            const events = user.events;
+            const eventsInfo = document.getElementById('events-info');
+            if (events.length > 0) {
+                eventsInfo.innerHTML = '<h2>Registered Events:</h2>';
+                events.forEach(event => {
+                    eventsInfo.innerHTML += `<p>${event.name} on ${event.date}</p>`;
+                });
+            } else {
+                eventsInfo.innerText = 'No events registered';
+            }
+        } else {
+            alert(user.message);
+            window.location.href = 'login.html';
+        }
+    });
+</script>
+</body>
+</html>

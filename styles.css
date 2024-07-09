@@ -1,0 +1,245 @@
+
+
+  h2 {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  p {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+
+
+  h1 {
+    color: #333;
+  }
+
+  /* styles.css */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+main {
+  padding: 20px;
+  text-align: center;
+}
+
+
+.faq {
+  margin: 20px 0;
+}
+
+.faq-question {
+  cursor: pointer;
+  background-color: #f4f4f4;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.faq-answer {
+  display: none;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-block-start: none;
+}
+
+.form {
+  max-inline-size: 600px;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+input, textarea {
+  inline-size: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+/* styles.css */
+
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+main {
+  padding: 20px;
+  text-align: center;
+}
+
+/* styles.css */
+body {
+  display: flex;
+  flex-direction: column;
+  min-block-size: 100vh; /* Ensure the body takes the full viewport height */
+  margin: 0;
+}
+
+main {
+  flex: 1; /* Take up remaining space to push footer to bottom */
+}
+
+footer {
+  background-color: #1f97e7; /* Customize as needed */
+  padding: 10px 0; /* Customize padding as needed */
+  text-align: center; /* Center-align text */
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  position: relative;
+  inline-size: 100%;
+  inset-block-end: 0;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+footer ul li {
+  display: inline;
+  margin: 0 10px;
+}
+
+footer ul li a {
+  text-decoration: style;
+  color: whitesmoke;
+}
+
+
+#form {
+  max-inline-size: 600px;
+  margin: 0 auto;
+  text-align: start;
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+input {
+  inline-size: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-block-start: 20px;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+#back-button {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#back-button:hover {
+  background-color: #0056b3;
+}
+
+/* styles.css */
+.image-container {
+  max-inline-size: 100%; /* Ensures image does not exceed container width */
+  overflow: hidden; /* Hides any overflow beyond container */
+}
+
+.image-container img {
+  display: block; /* Ensures image is displayed as a block element */
+  max-inline-size: 100%; /* Limits image width to its container */
+  block-size: auto; /* Allows image height to adjust proportionally */
+  margin: 0 auto; /* Centers the image horizontally */
+}

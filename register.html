@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="firebase.js"></script>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="faqs.html">FAQs</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="register.html">Register</a></li>
+      </ul>
+    </nav>
+  </header>
+  <script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
+  </script>
+  <!-- <script>
+    function signup(){
+alert('Working');
+const auth = getAuth();
+alert('Working');
+createUserWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed up 
+    const user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
+  });
+}
+  </script> -->
+
+  <main>
+    <h1>Register</h1>
+    <div id="form">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" required><br>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required><br>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required><br>
+
+      <button id="signup">Register</button>
+    </div>
+    <p id="errorMessage" style="color: red;"></p>
+    <p>Already have an account? <a href="login.html">Login here</a>.</p>
+    <!-- <script>window.</script> -->
+  </main>
+
+  <p id="register-form-feedback"></p>
+
+  <footer>
+    <p>&copy; 2024 Your College Name. All rights reserved.</p>
+  </footer>
+  <!-- <script>
+        document.getElementById('register-form').addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('users/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ username, email, password }),
+                });
+
+                const result = await response.json();
+                console.log(response)
+                if (result.success) {
+                    alert('User registered successfully!');
+                } else {
+                    document.getElementById('errorMessage').innerText = result.message;
+                }
+            } catch (error) {
+                document.getElementById('errorMessage').innerText = 'An error occurred. Please try again later.';
+            }
+        });
+    </script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
+  <!-- <script>
+    document.getElementById('register-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      axios.post('http://localhost:3000/register.html', { username, password })
+        .then(response => {
+          // Assuming you want to provide feedback within the form
+          const feedbackElement = document.getElementById('register-form-feedback');
+          feedbackElement.innerText = 'Registration successful!';
+          // Redirect or handle success as needed
+          window.location.href = 'login.html';
+        })
+        .catch(error => {
+          // Assuming you want to provide feedback within the form
+          const feedbackElement = document.getElementById('register-form-feedback');
+          feedbackElement.innerText = 'Registration failed. Please try again.';
+          console.error('Error registering:', error);
+        });
+    });
+</script> -->
+
+</body>
+</html>

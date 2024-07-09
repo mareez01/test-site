@@ -1,0 +1,64 @@
+<!-- faqs.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQs</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Include the navigation bar -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="faqs.html">FAQs</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="profile.html">Profile</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>FAQs</h1>
+    <div class="faq">
+      <div class="faq-question">What is the event registration process?</div>
+      <div class="faq-answer">You can register for events by going to the event registration page and filling out the form.</div>
+    </div>
+    <div class="faq">
+      <div class="faq-question">How can I contact the organizers?</div>
+      <div class="faq-answer">You can contact the organizers using the contact form on the contact page.</div>
+    </div>
+  </main>
+
+  <!-- Include the footer -->
+  <footer>
+    <p>&copy; 2024 Your College Name. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.faq-question').forEach(function(question) {
+      question.addEventListener('click', function() {
+        this.nextElementSibling.classList.toggle('visible');
+      });
+    });
+  </script>
+
+  <style>
+    .faq {
+      margin: 10px 0;
+    }
+    .faq-answer {
+      display: none;
+      margin-block-start: 10px;
+    }
+    .faq-answer.visible {
+      display: block;
+    }
+  </style>
+</body>
+</html>

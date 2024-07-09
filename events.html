@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events Listing</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="faqs.html">FAQs</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="profile.html">Profile</a></li>
+      </ul>
+    </nav>
+  </header>
+ 
+  <h3> <main>
+    <h1>Upcoming Events</h1>
+  </main></h3>
+  <div class="event-list">
+    <div class="event">
+      <a href="edetails.html?id=1">
+        <img src="B.jpg" alt="Event 1">
+        <h2>Event 1</h2>
+      </a>
+    </div>
+    <div class="event">
+      <a href="edetails.html?id=2">
+        <img src= "C.jpg" alt="Event 2">
+        <h2>Event 2</h2>
+      </a>
+    </div>
+    <div class="event">
+        <div class = "image-container">
+        <a href="edetails.html?id=3">
+          <img src="D.jpg" alt="Event 3">
+          <h2>Event 2</h2>
+        </a>
+        </div>
+      </div>
+    <!-- Add more event entries as needed -->
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Your College Name. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      axios.get('http://localhost:3000/events')
+        .then(response => {
+          const eventsContainer = document.getElementById('events-container');
+          response.data.forEach(event => {
+            const eventElement = document.createElement('div');
+            eventElement.classList.add('event');
+            eventElement.innerHTML = `
+              <h2>${event.title}</h2>
+              <img src="${event.image}">
+              <p>${event.description}</p>
+              <a href="edetails.html?id=${event._id}">View Details</a>
+            `;
+            eventsContainer.appendChild(eventElement);
+          });
+        })
+        .catch(error => {
+          console.error('Error fetching events:', error);
+        });
+    });
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

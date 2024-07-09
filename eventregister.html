@@ -1,0 +1,56 @@
+<!-- event-registration.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Registration</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Include the navigation bar -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="faqs.html">FAQs</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="profile.html">Profile</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Event Registration</h1>
+    <form id="registration-form">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="event">Event</label>
+      <select id="event" name="event" required>
+        <option value="event1">Event 1</option>
+        <option value="event2">Event 2</option>
+        <option value="event3">Event 3</option>
+      </select>
+
+      <button type="submit">Register</button>
+    </form>
+  </main>
+
+  <!-- Include the footer -->
+  <footer>
+    <p>&copy; 2024 Your College Name. All rights reserved.</p>
+    <ul>
+      <li><a href="about.html">About</a></li>
+      <li><a href="faqs.html">FAQs</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </footer>
+</body>
+</html>

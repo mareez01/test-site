@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Details</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="faqs.html">FAQs</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Event Details</h1>
+    <p id="event-description"></p>
+    <button id="back-button">Back to Events</button>
+  </main>
+
+  
+  <div class="event-details" id="event-details">
+    <!-- Event details will be loaded here dynamically -->
+  </div>
+
+  
+  <footer>
+    <p>&copy; 2024 Your College Name. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Function to get URL parameters
+    function getQueryParams() {
+      const params = new URLSearchParams(window.location.search);
+      return {
+        id: params.get('id')
+      };
+    }
+
+    // Event data (you can replace this with data fetched from your backend)
+    const eventsData = {
+      1: {
+      name: "Event 1 Name",
+      date: "January 1, 2025",
+      location: "Venue 1",
+      description: "Description of Event 1",
+      image: 'B.jpg',
+
+    },
+      2: {
+      name: "Event 2 Name",
+      date: "February 1, 2025",
+      location: "Venue 2",
+      description: "Description of Event 2",
+      image: 'C.jpg',
+    },
+      3: {
+      name: "Event 3 Name",
+      date: "February 1, 2025",
+      location: "Venue 3",
+      description: "Description of Event 3",
+      image: 'D.jpg',
+    },
+  };
+
+    // Function to display event details
+    function displayEventDetails(eventId) {
+      const event = eventsData[eventId];
+      if (event) {
+        document.getElementById('event-details').innerHTML = `
+          <img src="${event.image}">
+          <h1>${event.name}</h1>
+          <p>Date: ${event.date}</p>
+          <p>Location: ${event.location}</p>
+          <p>Description: ${event.description}</p>
+        `;
+      } else {
+        document.getElementById('event-details').innerHTML = '<p>Event not found.</p>';
+      }
+    }
+
+    // Get event ID from URL and display details
+    const params = getQueryParams();
+    displayEventDetails(params.id);
+  </script>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const eventId = urlParams.get('id');
+
+      axios.get(`http://localhost:3000/events/${eventId}`)
+        .then(response => {
+          const eventDetailsContainer = document.getElementById('event-details-container');
+          const event = response.data;
+          eventDetailsContainer.innerHTML = `
+            <h2>${event.title}</h2>
+            <img src="${event.image}" alt="${event.title}">
+            <p>${event.description}</p>
+            <p>Date: ${new Date(event.date).toLocaleDateString()}</p>
+            <p>Location: ${event.location}</p>
+          `;
+        })
+        .catch(error => {
+          console.error('Error fetching event details:', error);
+        });
+
+      document.getElementById('back-button').addEventListener('click', function() {
+        window.location.href = 'events.html';
+      });
+    });
+  </script>
+</body>
+</html>
